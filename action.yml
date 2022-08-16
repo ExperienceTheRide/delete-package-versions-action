@@ -1,0 +1,14 @@
+name: 'Delete Package Versions'
+description: 'Deletes package versions for this repo whose names contain any of the given strings'
+inputs:
+  matchers:
+    description: 'A "/" separated list of strings to match against package version names for deletion'
+    required: true
+    default: ''
+  PACKAGE_TOKEN:
+    description: 'A GitHub Personal Access Token with the package delete scope'
+    required: true
+    default: ''
+runs:
+  using: 'node16'
+  main: 'index.js'
