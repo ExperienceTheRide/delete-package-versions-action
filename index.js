@@ -2,10 +2,9 @@ import core from '@actions/core'
 import github from '@actions/github'
 
 const getData = async () => {
-    const token = core.getInput('PACKAGE_TOKEN');
     const matcherString = core.getInput('matchers');
     const matchers = matcherString.split('/')
-    const octokit = github.getOctokit(token)
+    const octokit = github.getOctokit(process.env.DELETE_PACKAGE_PAT)
     const owner = github.context.repo.owner
     const repo = github.context.repo.repo
 
